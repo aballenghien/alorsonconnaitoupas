@@ -28,3 +28,25 @@ app.directive('jeu', function() {
     } 
   }
 });
+
+app.directive('geo', ['$compile', function($compile) { 
+	  return { 
+	    restrict: 'E', 
+	    scope: {}, 
+	    templateUrl: 'geo.svg',
+	    link: function (scope, element, attrs) {
+
+	    	var deps = element[0].children;
+	    	for (var i = 0; i < deps.length; i++) {
+	    	      deps[i].setAttribute("ng-click", "clickHandler()");
+
+	    	    }
+	    	scope.clickHandler=function(){
+	    		console.log('test');
+	    	}
+	    	
+	    	}
+	  }
+}]);
+
+

@@ -28,52 +28,6 @@
   "ownerName" : "mycompany.com",
   "packagePath" : "services",
   "methods" : {
-    "scoreendpoint.listScore" : {
-      "path" : "score",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "aocop.ScoreEndpoint.listScore",
-      "request" : {
-        "parameters" : {
-          "cursor" : {
-            "type" : "string",
-            "required" : false
-          },
-          "limit" : {
-            "type" : "int32",
-            "required" : false
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "scoreendpoint.getScore" : {
-      "path" : "score/{id}",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "aocop.ScoreEndpoint.getScore",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
     "scoreendpoint.updateScore" : {
       "path" : "score",
       "httpMethod" : "PUT",
@@ -126,25 +80,56 @@
       "response" : {
         "body" : "empty"
       }
+    },
+    "scoreendpoint.getScore" : {
+      "path" : "score/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "aocop.ScoreEndpoint.getScore",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "scoreendpoint.listScore" : {
+      "path" : "score",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "aocop.ScoreEndpoint.listScore",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
     }
   },
   "descriptor" : {
     "schemas" : {
-      "CollectionResponse_Score" : {
-        "id" : "CollectionResponse_Score",
-        "type" : "object",
-        "properties" : {
-          "items" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "Score"
-            }
-          },
-          "nextPageToken" : {
-            "type" : "string"
-          }
-        }
-      },
       "Score" : {
         "id" : "Score",
         "type" : "object",
@@ -160,19 +145,24 @@
             "type" : "integer"
           }
         }
+      },
+      "CollectionResponse_Score" : {
+        "id" : "CollectionResponse_Score",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Score"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
       }
     },
     "methods" : {
-      "aocop.ScoreEndpoint.listScore" : {
-        "response" : {
-          "$ref" : "CollectionResponse_Score"
-        }
-      },
-      "aocop.ScoreEndpoint.getScore" : {
-        "response" : {
-          "$ref" : "Score"
-        }
-      },
       "aocop.ScoreEndpoint.updateScore" : {
         "request" : {
           "$ref" : "Score"
@@ -190,6 +180,16 @@
         }
       },
       "aocop.ScoreEndpoint.removeScore" : {
+      },
+      "aocop.ScoreEndpoint.getScore" : {
+        "response" : {
+          "$ref" : "Score"
+        }
+      },
+      "aocop.ScoreEndpoint.listScore" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Score"
+        }
       }
     }
   }

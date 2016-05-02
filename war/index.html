@@ -8,7 +8,6 @@
     <link href="style.css" rel="stylesheet" />
     <script data-semver="1.4.9" src="https://code.angularjs.org/1.4.9/angular.js" data-require="angular.js@1.4.x"></script>
     <script src="app.js"></script>
-    <script src="controller.js"></script>
     <script src="directives.js"></script>
   </head>
 
@@ -21,7 +20,8 @@
       <div id="accueil" ng-show="affichageaccueil == 1">
       <div class="accueil">
         <p class="button" ng-click="lancerJeu()">{{ jouer }}</p>
-        <p class="button" ng-click="lancerScore()">{{ score }}</p>
+        <p class="button" ng-click="lancerScore()">{{ score }}</p>        
+    	<p class="button" ng-click="lancerGeo()">{{ situation }}</p>
       </div>
       <div class="regle">
         <em>{{ regle }}</em>
@@ -34,6 +34,9 @@
       <h1> Tableau de score</h1>
       {{ score[0] }}
     </div>
+    <div ng-show="geoencours == 1">
+    	<geo></geo>
+    </div>
   </body>
 
 </html>
@@ -43,6 +46,8 @@
     console.log("init called");
     window.init();
   };
+  
+ 
 </script>
 
 <script src="https://apis.google.com/js/client.js?onload=init"></script>
